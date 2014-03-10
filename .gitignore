@@ -1,0 +1,26 @@
+#Default ignores
+[Oo]bj/
+[Bb]in/
+*.suo
+*.user
+TestResults
+*.vspscc
+*.vssscc
+*.dotCover
+*.ncrunchsolution
+*.crunchsolution*
+*_Resharper*
+*_TeamCity*
+*.vsmdi
+*.ncrunchproject
+*.tmpl.*
+*.vsmdi
+*.DS_Store
+*.dbmdl
+*.DotSettings
+cassette-cache/
+csx/
+
+#Beyond Compare Ignores
+*.orig
+
