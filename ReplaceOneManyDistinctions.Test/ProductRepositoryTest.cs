@@ -79,21 +79,24 @@ namespace ReplaceOneManyDistinctions.Test
          var foundProducts = _repository.SelectBy( new ColorSpec( ProductColor.Red ) ).ToList();
 
          Assert.AreEqual( 2, foundProducts.Count );
-         Assert.IsTrue( foundProducts.Contains( _fireTruck ) );  
-         Assert.IsTrue( foundProducts.Contains( _toyConvertible ) );  
+         Assert.IsTrue( foundProducts.Contains( _fireTruck ) );
+         Assert.IsTrue( foundProducts.Contains( _toyConvertible ) );
       }
 
       [TestMethod]
       public void SelectBy_FindByColorAndSizeAndPrice_RetrievesCorrectItems()
       {
-         var specs = new List<ISpec>
-         {
-            new ColorSpec( ProductColor.Red ),
-            new SizeSpec( ProductSize.Small ),
-            new BelowPriceSpec( 10.00 )
-         };
+         var specs = new CompositeSpec();
+         specs.Add( new ColorSpec( ProductColor.Red ) );
+         specs.Add( new SizeSpec( ProductSize.Small ) );
+         specs.Add( new BelowPriceSpec( 10.00 ) );
 
-         var foundProducts = _repository.SelectBy( new CompositeSpec( specs ) );
+         //var specs = new CompositeSpec
+         //{
+         //   new ColorSpec( ProductColor.Red ), new SizeSpec( ProductSize.Small ), new BelowPriceSpec( 10.00 )
+         //};
+
+         var foundProducts = _repository.SelectBy( specs );
 
          Assert.AreEqual( 0, foundProducts.Count() );
       }
