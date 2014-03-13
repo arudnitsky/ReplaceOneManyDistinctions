@@ -2,7 +2,7 @@
 
 namespace ReplaceOneManyDistinctions.Spec
 {
-   public class CompositeSpec
+   public class CompositeSpec : ISpec
    {
       private readonly List<ISpec> _specs = new List<ISpec>();
 
