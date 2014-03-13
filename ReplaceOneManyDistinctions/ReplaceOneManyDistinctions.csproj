@@ -49,6 +49,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Spec\BelowPriceSpec.cs" />
     <Compile Include="Spec\ColorSpec.cs" />
+    <Compile Include="Spec\CompositeSpec.cs" />
     <Compile Include="Spec\ISpec.cs" />
     <Compile Include="Spec\SizeSpec.cs" />
   </ItemGroup>
