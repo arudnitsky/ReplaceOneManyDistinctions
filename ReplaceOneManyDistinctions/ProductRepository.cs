@@ -28,11 +28,6 @@ namespace ReplaceOneManyDistinctions
          return foundProducts;
       }
 
-      public List<Product> SelectBy( List<ISpec> specs )
-      {
-         return SelectBy( new CompositeSpec( specs ) );
-      }
-
       #region IEnumerable implementation
       IEnumerator<Product> IEnumerable<Product>.GetEnumerator()
       {

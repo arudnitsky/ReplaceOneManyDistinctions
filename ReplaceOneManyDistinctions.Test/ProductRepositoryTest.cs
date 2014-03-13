@@ -93,7 +93,7 @@ namespace ReplaceOneManyDistinctions.Test
             new BelowPriceSpec( 10.00 )
          };
 
-         var foundProducts = _repository.SelectBy( specs );
+         var foundProducts = _repository.SelectBy( new CompositeSpec( specs ) );
 
          Assert.AreEqual( 0, foundProducts.Count() );
       }
