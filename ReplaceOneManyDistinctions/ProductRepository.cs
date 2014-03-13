@@ -30,18 +30,7 @@ namespace ReplaceOneManyDistinctions
 
       public List<Product> SelectBy( List<ISpec> specs )
       {
-         var spec = new CompositeSpec( specs ); 
-         var foundProducts = new List<Product>();
-
-         foreach ( var product in _products )
-         {
-            if ( spec.IsSatisfiedBy( product ) )
-            {
-               foundProducts.Add( product );
-            }
-         }
-
-         return foundProducts;
+         return SelectBy( new CompositeSpec( specs ) );
       }
 
       #region IEnumerable implementation
