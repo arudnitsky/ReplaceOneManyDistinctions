@@ -14,6 +14,16 @@ namespace ReplaceOneManyDistinctions.Spec
       public List<ISpec> GetSpecs()
       {
          return _specs;
-      } 
+      }
+
+      public bool IsSatisfiedBy( Product product )
+      {
+         bool satisfiesAllSpecs = true;
+         foreach ( var productSpec in GetSpecs() )
+         {
+            satisfiesAllSpecs &= productSpec.IsSatisfiedBy( product );
+         }
+         return satisfiesAllSpecs;
+      }
    }
 }

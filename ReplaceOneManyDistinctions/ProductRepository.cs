@@ -35,13 +35,7 @@ namespace ReplaceOneManyDistinctions
 
          foreach ( var product in _products )
          {
-            bool satisfiesAllSpecs = true;
-            foreach ( var productSpec in spec.GetSpecs() )
-            {
-               satisfiesAllSpecs &= productSpec.IsSatisfiedBy( product );
-            }
-
-            if ( satisfiesAllSpecs )
+            if ( spec.IsSatisfiedBy( product ) )
             {
                foundProducts.Add( product );
             }
