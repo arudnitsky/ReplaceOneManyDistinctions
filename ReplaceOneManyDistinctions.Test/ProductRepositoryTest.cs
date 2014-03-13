@@ -86,14 +86,12 @@ namespace ReplaceOneManyDistinctions.Test
       [TestMethod]
       public void SelectBy_FindByColorAndSizeAndPrice_RetrievesCorrectItems()
       {
-         var specs = new List<ISpec>
-         {
-            new ColorSpec( ProductColor.Red ),
-            new SizeSpec( ProductSize.Small ),
-            new BelowPriceSpec( 10.00 )
-         };
+         var compositeSpec = new CompositeSpec();
+         compositeSpec.Add( new ColorSpec( ProductColor.Red ) );
+         compositeSpec.Add( new SizeSpec( ProductSize.Small ) );
+         compositeSpec.Add( new BelowPriceSpec( 10.00 ) );  
 
-         var foundProducts = _repository.SelectBy( new CompositeSpec( specs ) );
+         var foundProducts = _repository.SelectBy( compositeSpec );
 
          Assert.AreEqual( 0, foundProducts.Count() );
       }

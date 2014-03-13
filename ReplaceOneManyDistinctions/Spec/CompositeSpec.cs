@@ -4,11 +4,15 @@ namespace ReplaceOneManyDistinctions.Spec
 {
    public class CompositeSpec : ISpec
    {
-      private List<ISpec> _specs;
+      private readonly List<ISpec> _specs = new List<ISpec>();
 
-      public CompositeSpec( List<ISpec> specs )
+      public CompositeSpec()
       {
-         _specs = specs;
+      }
+
+      public void Add( ISpec spec )
+      {
+         _specs.Add( spec );
       }
 
       public List<ISpec> GetSpecs()
