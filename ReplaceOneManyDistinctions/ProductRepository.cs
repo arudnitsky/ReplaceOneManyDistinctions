@@ -30,14 +30,15 @@ namespace ReplaceOneManyDistinctions
 
       public List<Product> SelectBy( List<ISpec> specs )
       {
+         var spec = new CompositeSpec( specs ); 
          var foundProducts = new List<Product>();
 
          foreach ( var product in _products )
          {
             bool satisfiesAllSpecs = true;
-            foreach ( var spec in specs )
+            foreach ( var productSpec in spec.GetSpecs() )
             {
-               satisfiesAllSpecs &= spec.IsSatisfiedBy( product );
+               satisfiesAllSpecs &= productSpec.IsSatisfiedBy( product );
             }
 
             if ( satisfiesAllSpecs )
